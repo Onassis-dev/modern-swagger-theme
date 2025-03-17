@@ -19,7 +19,7 @@ import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 
-import { customJs, customCss } from "modern-swagger-theme";
+import { customJsStr, customCss } from "modern-swagger-theme";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -34,7 +34,7 @@ async function bootstrap() {
 
   SwaggerModule.setup("docs", app, document, {
     customCss: customCss,
-    customJsStr: customJs,
+    customJsStr: customJsStr,
   });
 
   await app.listen(3000);
@@ -50,7 +50,7 @@ import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 import express from "express";
 
-import { customCss, customJs } from "modern-swagger-theme";
+import { customCss, customJsStr } from "modern-swagger-theme";
 
 const options = {
   swaggerDefinition: {
@@ -72,7 +72,7 @@ app.use(
   swaggerUi.serve,
   swaggerUi.setup(specs, {
     customCss: customCss,
-    customJsStr: customJs,
+    customJsStr: customJsStr,
   })
 );
 
