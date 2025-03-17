@@ -1,6 +1,6 @@
 # Modern Swagger Theme
 
-A easy to implement modern and practical theme for Swagger UI.
+A sleek, contemporary theme for Swagger UI that prioritizes both aesthetics and functionality. Transform your API documentation with minimal effort.
 
 ## Installation
 
@@ -10,14 +10,15 @@ npm install modern-swagger-theme
 
 ## Usage
 
-This package exports a customCss and customJs **strings** that you can add in most swagger-ui implementations.
+This package exports `customCss` and `customJs` strings that seamlessly integrate with most Swagger UI implementations.
 
-Use in nestjs:
+### NestJS Integration
 
 ```ts
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
+
 import { customJs, customCss } from "modern-swagger-theme";
 
 async function bootstrap() {
@@ -25,13 +26,12 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle("API Example")
-    .setDescription("Example API using custom-swagger-theme")
-    .setVersion("1.0")
+    .setDescription("Example API using Modern Swagger Theme")
+    .setVersion("1.0.0")
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
 
-  // Set up Swagger with custom theme
   SwaggerModule.setup("docs", app, document, {
     customCss: customCss,
     customJsStr: customJs,
@@ -42,6 +42,48 @@ async function bootstrap() {
 
 bootstrap();
 ```
+
+### Express Integration
+
+```ts
+import swaggerJsdoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
+import express from "express";
+
+import { customCss, customJs } from "modern-swagger-theme";
+
+const options = {
+  swaggerDefinition: {
+    openapi: "3.0.0",
+    info: {
+      title: "API Example",
+      version: "1.0.0",
+      description: "Example API using Modern Swagger Theme",
+    },
+  },
+  apis: ["./routes/*.js"],
+};
+
+const specs = swaggerJsdoc(options);
+
+const app = express();
+app.use(
+  "/docs",
+  swaggerUi.serve,
+  swaggerUi.setup(specs, {
+    customCss: customCss,
+    customJsStr: customJs,
+  })
+);
+
+app.listen(3000);
+```
+
+## Key Features
+
+- Modern visual design
+- Improved readability
+- Simple integration process
 
 ## Contributing
 
