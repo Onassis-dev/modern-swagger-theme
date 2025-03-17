@@ -5,6 +5,11 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "module": "dist/index.mjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Onassis-dev/modern-swagger-theme.git"
+  },
+  "homepage": "https://github.com/Onassis-dev/modern-swagger-theme",
   "files": [
     "dist/"
   ],
