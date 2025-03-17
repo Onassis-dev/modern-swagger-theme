@@ -10,7 +10,7 @@ npm install modern-swagger-theme
 
 ## Usage
 
-This package exports `customCss` and `customJs` strings that seamlessly integrate with most Swagger UI implementations.
+This package exports `customCss` and `customJsStr` strings that seamlessly integrate with most Swagger UI implementations.
 
 ### NestJS Integration
 

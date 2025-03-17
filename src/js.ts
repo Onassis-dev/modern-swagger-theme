@@ -1,4 +1,4 @@
-export const customJs = `
+export const customJsStr = `
 window.addEventListener("load", () =>
   setTimeout(function () {
     const tags = document.querySelectorAll(".opblock-tag");
@@ -31,5 +31,6 @@ window.addEventListener("load", () =>
     closeAllMethods();
   }, 200)
 );
+
 
 `;
